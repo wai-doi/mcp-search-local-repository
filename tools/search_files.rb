@@ -54,7 +54,7 @@ class SearchFiles < MCP::Tool
     private
 
     def search(keyword, repo_dir)
-      command = %(rg --files-with-matches "#{keyword}" "#{repo_dir}")
+      command = %(rg --files-with-matches --ignore-case "#{keyword}" "#{repo_dir}")
       `#{command}`.lines(chomp: true)
     end
   end
